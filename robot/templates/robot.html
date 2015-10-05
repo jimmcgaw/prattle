@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- compressed tags is created by Django Pipeline.  -->
+  {% load staticfiles pipeline %}
+  <title>Hello</title>
+  <!-- Include CSS files -->
+  {% stylesheet 'libraries' %}
+</head>
+<body>
+
+
+<div id="site">
+
+  <div style="float:left;">
+    <h1>Prattle App</h1>
+  </div>
+
+  <hr style="clear:both;" />
+
+  <h3>Say "Sparky"</h3>
+
+  <div id="speech_manager_results"></div>
+  <div id="interpreter_results"></div>
+  <div id="translation"></div>
+
+  <div class="row">
+    <div class="col-md-4">
+      Input language: <select id="input_language"></select>
+    </div>
+    <div class="col-md-4"> 
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+      aliquip ex ea commodo consequat.</p>
+    </div>
+    <div class="col-md-4"> 
+      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+      doloremque laudantium, totam rem aperiam.</p>
+    </div>
+  </div>
+  
+</div>
+
+
+<!-- Include JavaScript files -->
+{% javascript 'libraries' %}
+
+</body>
+</html>
