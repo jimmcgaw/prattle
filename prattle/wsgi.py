@@ -12,6 +12,8 @@ import os, sys
 import os, site, sys
 
 # From http://jmoiron.net/blog/deploying-django-mod-wsgi-virtualenv/
+sys.path.append('/home/jim/source')
+sys.path.append('/home/jim/source/prattle/prattle')
 
 vepath = '/home/jim/source/prattle/lib/python2.7/site-packages/'
 
@@ -25,8 +27,6 @@ for item in new_sys_path:
     sys.path.remove(item)
 sys.path[:0] = new_sys_path
 
-sys.path.append('/home/jim/source')
-sys.path.append('/home/jim/source/prattle/prattle')
 
 from django.core.wsgi import get_wsgi_application
 
