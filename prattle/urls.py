@@ -18,6 +18,6 @@ from django.contrib import admin
 from robot import views
 
 urlpatterns = [
-    url(r'^/$', views.robot, name='robot'),
+    url(r'^$', views.robot, name='robot'),
     url(r'^admin/', include(admin.site.urls)),
 ]
