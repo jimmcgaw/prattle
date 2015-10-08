@@ -111,7 +111,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = '/Users/smoochy/source/prattle/static/'
+STATIC_ROOT = '~/source/prattle/static/'
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
