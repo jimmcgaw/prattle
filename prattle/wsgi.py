@@ -20,7 +20,6 @@ prev_sys_path = list(sys.path)
 site.addsitedir(vepath)
 
 sys.path.append('/home/jim/source')
-sys.path.append('/home/jim/source/prattle')
 sys.path.append('/home/jim/source/prattle/prattle')
 
 # reorder sys.path so new directories from the addsitedir show up first
