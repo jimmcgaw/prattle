@@ -19,14 +19,14 @@ prev_sys_path = list(sys.path)
 
 site.addsitedir(vepath)
 
-sys.path.append('/home/jim/source')
-sys.path.append('/home/jim/source/prattle/prattle')
-
 # reorder sys.path so new directories from the addsitedir show up first
 new_sys_path = [p for p in sys.path if p not in prev_sys_path]
 for item in new_sys_path:
     sys.path.remove(item)
 sys.path[:0] = new_sys_path
+
+sys.path.append('/home/jim/source')
+sys.path.append('/home/jim/source/prattle/prattle')
 
 from django.core.wsgi import get_wsgi_application
 
