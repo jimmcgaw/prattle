@@ -23,9 +23,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'ixxj*=-#(bg-0p3vu)&o-_^zgz9$0opcxihy!kdqd%f@lol_bh'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+  '.prattleapp.com',
+  '.prattleapp.com.'
+]
 
 
 # Application definition
