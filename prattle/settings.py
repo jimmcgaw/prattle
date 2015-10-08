@@ -27,7 +27,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = [
   '.prattleapp.com',
-  '.prattleapp.com.'
+  'www.prattleapp.com'
 ]
 
 
