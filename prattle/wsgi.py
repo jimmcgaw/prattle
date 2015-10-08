@@ -27,6 +27,7 @@ for item in new_sys_path:
     sys.path.remove(item)
 sys.path[:0] = new_sys_path
 
+print sys.path
 
 from django.core.wsgi import get_wsgi_application
 
