@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '=2$er1q*k7v(+z)*9rd^jsqn5^b!d7@70p9sf+&!9ergt@2qc8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
   '.prattleapp.com',
@@ -113,8 +113,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
-PROJECT_DIR = os.path.join(BASE_DIR, '/prattle/')
-STATIC_ROOT = os.path.join(PROJECT_DIR, '/static/')
+PROJECT_DIR = os.path.join(BASE_DIR, 'prattle/')
+STATIC_ROOT = os.path.join(PROJECT_DIR, 'static/')
+
+print PROJECT_DIR
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
