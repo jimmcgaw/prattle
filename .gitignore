@@ -2,6 +2,8 @@ bin/
 include/
 lib/
 .Python
-static/bower_components/
+static/lib
+node_modules
+.DS_Store
 *.sqlite3
 *.pyc

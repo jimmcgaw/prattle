@@ -114,9 +114,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 PROJECT_DIR = os.path.join(BASE_DIR, 'prattle/')
-STATIC_ROOT = os.path.join(PROJECT_DIR, 'static/')
-
-print PROJECT_DIR
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
@@ -146,13 +144,14 @@ PIPELINE_JS = {
     # Project JavaScript libraries.
     'libraries': {
         'source_filenames': (
-            'bower_components/jquery/dist/jquery.js',
-            'bower_components/bootstrap/dist/js/bootstrap.js',
-            'bower_components/underscore/underscore.js',
-            'js/index.js',
+            '/static/bower_components/jquery/dist/jquery.js',
+            '/static/bower_components/bootstrap/dist/js/bootstrap.js',
+            '/static/bower_components/underscore/underscore.js',
+            '/static/js/index.js',
         ),
         # Compress all passed files into `js/libs.min.js`.
         'output_filename': 'js/libs.min.js',
     }
     # ...
 }
+

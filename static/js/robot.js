@@ -1,16 +1,11 @@
-(function(){
-
-
-
-}());
-
 $(document).ready(function(){
 
   var LanguageSelector = function(selector){
     this.select = $(selector || '#input_language');
     var langs = [
+      {'name': 'English', 'code': 'en'},
       {'name': 'French', 'code': 'fr'},
-      {'name': 'English', 'code': 'en'}
+      {'name': 'Spanish', 'code': 'es'}
     ];
     var self = this;
 
@@ -24,14 +19,14 @@ $(document).ready(function(){
   };
 
   LanguageSelector.prototype.setLanguage = function(newLanguage) {
-    var il = $("#input_language");
-    il.val(newLanguage);
+    $("#input_language").val(newLanguage);
 
   };
 
   var languageSelector = new LanguageSelector({});
 
   var Translator = function(options){
+    this.clear();
     console.log('Translator init with: ', options);
     this.interpreter = options.interpreter;
     this.source_lang = options.source_lang;
@@ -63,15 +58,20 @@ $(document).ready(function(){
           self.text += transcript;
           self.text = self.text.replace('undefined', '');
 
-          $('#interpreter_results').append(transcript);
-          
+          $('#interpreter_results').val(transcript);
+
           self.translate();
-          
+
         }
       }
     }
 
 
+  };
+
+  Translator.prototype.clear = function() {
+    $('#interpreter_results').val('');
+    $('#translation').val('');
   };
 
   Translator.prototype.start = function() {
@@ -91,10 +91,16 @@ $(document).ready(function(){
       this.text = this.text.replace('marathi', '');
       this.text = this.text.replace('in french', '');
       this.text = this.text.replace('french', '');
+      this.text = this.text.replace('in spanish', '');
+      this.text = this.text.replace('spanish', '');
     } else if (inputLang === 'fr'){
       this.text = this.text.split('dit-on')[1] || text;
       this.text = this.text.replace('en anglais', '');
       this.text = this.text.replace('anglais', '');
+    } else if (inputLang === 'es'){
+      this.text = this.text.split('dice')[1] || text;
+      this.text = this.text.replace('en inglés');
+      this.text = this.text.replace('inglés');
     }
     this.text = this.text.replace('undefined', '');
   };
@@ -105,9 +111,13 @@ $(document).ready(function(){
     console.log(text);
     if (text.indexOf('french') > -1){
       this.target_lang = 'fr';
+    } else if ( text.indexOf('spanish') > -1){
+      this.target_lang = 'es';
     } else if ( text.indexOf('marathi') > -1){
       this.target_lang = 'mr';
     } else if ( text.indexOf('anglais') > -1){
+      this.target_lang = 'en';
+    } else if ( text.indexOf('inglés') > -1){
       this.target_lang = 'en';
     }
   };
@@ -122,7 +132,7 @@ $(document).ready(function(){
         if (r.data.translations.length > 0){
           var translation = r.data.translations[0].translatedText;
           self.translation = translation;
-          $('#translation').html(self.text + ' = ' + self.translation);
+          $('#translation').val(self.text + ' = ' + self.translation);
           // speakTranslation(translation, targetLang);
           self.interpreter.finishTranslation();
         }
@@ -133,11 +143,15 @@ $(document).ready(function(){
     });
   };
 
+  var renderTranslation = function(translation){
+
+  };
+
 
   var Interpreter = function(options){
     this.text = options.text.toLowerCase();
     this.manager = options.manager;
-    this.magic_word = 'cock';
+    this.magic_word = 'dog';
     this.is_translating = false;
   };
 
@@ -157,8 +171,11 @@ $(document).ready(function(){
       languageSelector.setLanguage('fr');
     } else if (text.indexOf('english') > -1){
       languageSelector.setLanguage('en');
+    } else if (text.indexOf('spanish') > -1){
+      languageSelector.setLanguage('es');
+    } else {
+      this.processTranslation();
     }
-    this.processTranslation();
   };
 
   Interpreter.prototype.processTranslation = function() {
@@ -203,14 +220,14 @@ $(document).ready(function(){
         if (event.results[i].isFinal){
           this.final_transcript += transcript;
           this.final_transcript = this.final_transcript.replace('undefined', '');
-          $("#speech_manager_results").append(this.final_transcript + ' ');
+          $("#speech_manager_results").val(this.final_transcript + ' ');
           var interpreter = new Interpreter({
             text: this.final_transcript,
             manager: this
           });
           interpreter.process();
           this.final_transcript = '';
-          
+
         } else {
           // this.interim_transcript += transcript;
         }
@@ -218,7 +235,7 @@ $(document).ready(function(){
     };
 
     // this.start();
-    // 
+    //
   };
 
   SpeechManager.prototype.start = function() {
@@ -232,5 +249,3 @@ $(document).ready(function(){
   var speechManager = new SpeechManager({});
   speechManager.start();
 });
-
-

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  {% load static %}
+  <title>Voice Translation</title>
+  <!-- Include CSS files -->
+
+  <link href='https://fonts.googleapis.com/css?family=Catamaran' rel='stylesheet' type='text/css'>
+
+  <!-- bower:css -->
+  <link rel="stylesheet" href="/../static/lib/bootstrap/dist/css/bootstrap.css" />
+  <link rel="stylesheet" href="/../static/lib/font-awesome/css/font-awesome.css" />
+  <!-- endbower -->
+
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+</head>
+<body>
+
+
+<div class="container">
+
+  <header>
+    <h1>{% block title_text %}{% endblock %}</h1>
+  </header>
+
+
+
+  <div class="row">
+    {% block content %}{% endblock %}
+  </div>
+</div>
+
+
+  <!-- bower:js -->
+  <script src="/../static/lib/jquery/dist/jquery.js"></script>
+  <script src="/../static/lib/underscore/underscore.js"></script>
+  <script src="/../static/lib/bootstrap/dist/js/bootstrap.js"></script>
+  <!-- endbower -->
+
+  {% block javascripts %}{% endblock %}
+</body>
+</html>

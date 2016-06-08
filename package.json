@@ -1,0 +1,39 @@
+{
+  "name": "prattle",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Gruntfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/smoochy/prattle.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/smoochy/prattle/issues"
+  },
+  "homepage": "https://github.com/smoochy/prattle",
+  "dependencies": {
+    "grunt": "^0.4.5",
+    "grunt-cli": "^0.1.13",
+    "react": "^0.14.2",
+    "react-dom": "^0.14.2"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.1.2",
+    "grunt-babel": "^6.0.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-jsx": "^0.1.8",
+    "grunt-react": "^0.12.3",
+    "grunt-webpack": "^1.0.11",
+    "gulp": "^3.9.1",
+    "gulp-inject": "^4.1.0",
+    "gulp-sass": "^2.3.1",
+    "webpack": "^1.12.3",
+    "webpack-dev-server": "^1.12.1",
+    "wiredep": "^4.0.0"
+  }
+}

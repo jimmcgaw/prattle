@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title_text %}NLP{% endblock %}
+
+{% block content %}
+  <div class="col-md-12">
+    <div id="table"></div>
+  </div>
+
+  <div id="results" class="jumbotron" style="clear:both;margin-top:15px;"></div>
+{% endblock %}
+
+{% block javascripts %}
+  <script src="https://rawgit.com/spencermountain/nlp_compromise/master/client_side/nlp.js"> </script>
+  <script type="text/javascript" src="{% static 'react/compiled/natural.bundle.js' %}"></script>
+{% endblock %}
